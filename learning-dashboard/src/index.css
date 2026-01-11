@@ -1,0 +1,330 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inter, system-ui, sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* ======================
+   THEME VARIABLES
+====================== */
+
+:root {
+  --bg-color: #f8fafc;
+  --card-bg: #ffffff;
+  --text-color: #0f172a;
+  --muted-text: #64748b;
+  --border-color: #e5e7eb;
+}
+
+[data-theme='dark'] {
+  --bg-color: #020617;
+  --card-bg: #020617;
+  --text-color: #f8fafc;
+  --muted-text: #94a3b8;
+  --border-color: #1e293b;
+}
+
+/* ======================
+   PAGE LAYOUT
+====================== */
+
+.dashboard-page {
+  padding: 24px;
+  max-width: 1400px;
+  margin: auto;
+}
+
+.dashboard-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+/* ======================
+   TOP BAR
+====================== */
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  padding: 12px 16px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+      width: 800px;
+    position: relative;
+    left: 350px;
+    bottom: 50px;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.period-toggle {
+  display: flex;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.period-toggle button {
+  padding: 6px 14px;
+  background: transparent;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.period-toggle button.active {
+  background: var(--text-color);
+  color: var(--bg-color);
+}
+
+.date-range {
+  font-size: 12px;
+  color: var(--muted-text);
+}
+
+.topbar-right {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.topbar-right select,
+.theme-btn {
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+/* ======================
+   SUMMARY BAR
+====================== */
+/* ===== Summary Cards Alignment Fix ===== */
+
+.summary-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  bottom: 50px;
+}
+
+.summary-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.summary-icon img {
+  height: 42px;
+  width: auto;
+}
+
+
+.summary-icon {
+  font-size: 22px;
+}
+
+.summary-label {
+  font-size: 14px;
+  color: var(--muted-text);
+  font-weight: 500;
+}
+
+.summary-value {
+  margin-top: 6px;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.summary-divider {
+  position: absolute;
+  right: 0;
+  top: 10%;
+  width: 2px;
+  height: 80%;
+  opacity: 0.6;
+}
+
+.summary-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 16px;
+  position: relative;
+}
+
+
+
+
+/* ======================
+   CARDS & GRID
+====================== */
+
+.dashboard-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+  position: relative;
+  bottom: 20px;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 10px;
+  width: 580px;
+}
+
+.card-title {
+  display: flex;
+  gap: 8px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+/* Fix chart heights */
+.recharts-responsive-container {
+  min-height: 300px;
+  transform: translateX(-10px);
+}
+
+/* ======================
+   PIE + LEGEND
+====================== */
+
+.grade-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.grade-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.legend-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 6px;
+}
+.year-switch{
+  display: inline-block;
+  position: relative;
+  bottom: 50px;  
+  left: 1000px;
+}
+
+.year-switch>section button{
+  background-color:#64748b;
+  padding: 5px;
+  margin: 2px;
+  border: 0px;
+}
+
+.card1{
+    width: 1180px;
+}
+
+/* =========================
+   DARK MODE CONTRAST FIXES
+========================= */
+
+[data-theme='dark'] {
+  --card-bg: #0b1220;          /* clearer card separation */
+  --border-color: #1e293b;    /* visible but subtle */
+  --text-color: #f8fafc;      /* strong primary text */
+  --muted-text: #9ca3af;      /* readable secondary text */
+}
+
+/* Chart axis text */
+[data-theme='dark'] .recharts-cartesian-axis-tick text {
+  fill: var(--muted-text);
+}
+
+/* Chart grid lines */
+[data-theme='dark'] .recharts-cartesian-grid line {
+  stroke: var(--border-color);
+  opacity: 0.6;
+}
+/* Chart legend text */
+[data-theme='dark'] .recharts-legend-item-text {
+  color: var(--muted-text) !important;
+}
+/* Chart tooltip */
+[data-theme='dark'] .recharts-tooltip-wrapper {
+  background-color: var(--card-bg) !important;
+  border: 1px solid var(--border-color) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+}
+[data-theme='dark'] .summary-divider {
+  opacity: 0.8;
+}
+
+/* ============================
+   Dark Mode – Ranking Cards
+============================ */
+
+[data-theme='dark'] .ranking-strip {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 10px 0;
+}
+
+[data-theme='dark'] .ranking-card {
+  min-width: 140px;
+  background: #1f2937;
+  border-radius: 10px;
+  padding: 12px;
+  text-align: center;
+}
+
+[data-theme='dark'] .ranking-district {
+  font-size: 13px;
+  color: #e5e7eb;
+  margin-bottom: 10px;
+}
+
+[data-theme='dark'] .ranking-rank {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+[data-theme='dark'] .ranking-rank span {
+  display: block;
+  font-size: 11px;
+  color: #94a3b8;
+}

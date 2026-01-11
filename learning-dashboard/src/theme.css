@@ -1,0 +1,74 @@
+/* =========================
+   THEME VARIABLES
+========================= */
+
+/* LIGHT THEME
+.dashboard-page.light {
+  --bg-main: #f6f7f9;
+  --bg-card: #ffffff;
+  --bg-card-alt: #fafafa;
+
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+
+  --border-color: #e5e7eb;
+
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+/* DARK THEME */
+.dashboard-page.dark {
+  --bg-main: #0b0f14;
+  --bg-card: #0f1623;
+  --bg-card-alt: #121a29;
+
+  --text-main: #e5e7eb;
+  --text-muted: #94a3b8;
+
+  --border-color: #1f2937;
+
+  --shadow-card: 0 6px 24px rgba(0, 0, 0, 0.7);
+} */
+
+.dashboard-page {
+  background: var(--bg-main);
+  color: var(--text-main);
+}
+
+/* Cards */
+.card {
+  background: var(--bg-card);
+  color: var(--text-main);
+  border-radius: 12px;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border-color);
+}
+
+/* Titles */
+.card-title,
+.dashboard-title {
+  color: var(--text-main);
+}
+
+/* Muted text */
+.text-muted,
+.recharts-cartesian-axis-tick text {
+  fill: var(--text-muted);
+  color: var(--text-muted);
+}
+
+/* Legends */
+.recharts-legend-item-text {
+  color: var(--text-muted) !important;
+}
+
+/* Grid lines (charts) */
+.recharts-cartesian-grid line {
+  stroke: var(--border-color);
+}
+
+/* Tooltip */
+.recharts-tooltip-wrapper {
+  background: var(--bg-card-alt) !important;
+  border: 1px solid var(--border-color) !important;
+}
